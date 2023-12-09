@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "readme": {
+      "factory": "./src/readme/generator",
+      "schema": "./src/readme/schema.json",
+      "description": "readme generator"
+    }
+  }
+}
