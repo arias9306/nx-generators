@@ -1,24 +1,32 @@
-import {
-  addProjectConfiguration,
-  formatFiles,
-  generateFiles,
-  Tree,
-} from '@nx/devkit';
+import { formatFiles, generateFiles, getProjects, Tree } from '@nx/devkit';
 import * as path from 'path';
-import { ReadmeGeneratorSchema } from './schema';
 
-export async function readmeGenerator(
-  tree: Tree,
-  options: ReadmeGeneratorSchema
-) {
-  const projectRoot = `libs/${options.name}`;
-  addProjectConfiguration(tree, options.name, {
-    root: projectRoot,
-    projectType: 'library',
-    sourceRoot: `${projectRoot}/src`,
-    targets: {},
+export async function readmeGenerator(tree: Tree) {
+  const projects = getProjects(tree);
+
+  const listOfLibraries = [];
+  const listOfApps = [];
+  const listOfEmpties = [];
+
+  for (const iterator of projects.keys()) {
+    switch (projects.get(iterator).projectType) {
+      case 'library':
+        listOfLibraries.push(iterator);
+        break;
+      case 'application':
+        listOfApps.push(iterator);
+        break;
+      default:
+        listOfEmpties.push(iterator);
+        break;
+    }
+  }
+
+  generateFiles(tree, path.join(__dirname, 'files'), './', {
+    projects,
+    apps: listOfApps,
+    libs: listOfLibraries,
   });
-  generateFiles(tree, path.join(__dirname, 'files'), projectRoot, options);
   await formatFiles(tree);
 }
 
