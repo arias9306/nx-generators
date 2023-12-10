@@ -2,7 +2,9 @@
   "name": "@nx-generators/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "update-readme": "nx g @nx-generators/documents:readme"
+  },
   "private": true,
   "devDependencies": {
     "@nx/angular": "^17.2.0",
