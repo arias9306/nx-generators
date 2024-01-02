@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-generators/buildable-lib": ["libs/buildable-lib/src/index.ts"],
       "@nx-generators/documents": ["plugins/documents/src/index.ts"]
     }
   },
