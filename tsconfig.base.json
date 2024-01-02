@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@nx-generators/buildable-lib": ["libs/buildable-lib/src/index.ts"],
-      "@nx-generators/documents": ["plugins/documents/src/index.ts"]
+      "@nx-generators/documents": ["plugins/documents/src/index.ts"],
+      "@nx-generators/nx-button": ["libs/web/shared/ui/nx-button/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
