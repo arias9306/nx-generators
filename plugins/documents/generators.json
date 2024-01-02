@@ -4,6 +4,11 @@
       "factory": "./src/readme/generator",
       "schema": "./src/readme/schema.json",
       "description": "readme generator"
+    },
+    "transform-to-not-buildable": {
+      "factory": "./src/transform-to-not-buildable/generator",
+      "schema": "./src/transform-to-not-buildable/schema.json",
+      "description": "transform-to-not-buildable generator"
     }
   }
 }

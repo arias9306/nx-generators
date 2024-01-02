@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "update-readme": "nx g @nx-generators/documents:readme"
+    "update-readme": "nx g @nx-generators/documents:readme",
+    "transform": "nx g @nx-generators/documents:transform-to-not-buildable"
   },
   "private": true,
   "devDependencies": {
